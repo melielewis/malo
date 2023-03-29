@@ -4,15 +4,27 @@
 @import 'https://fonts.googleapis.com/css2?family=Zen+Loop';
 @import "https://use.fontawesome.com/releases/v6.3.0/css/all.css";
 * {
-  background-color: #EEF5F8;
-}
-div, p,ul, li, .card, .fa-solid,h1, span {
-background: none;
 
+   font-family: Inconsolata;
 }
+div, p,ul, li, .card, .fa-solid,h1, span,i {
+background: none;
+}
+    .cap {
+      margin-bottom: -15px;
+      padding-bottom: -15px;
+      font-size: 10px;
+        text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 .header-primary {
    background-color: rgb(164, 136, 114,0.2) ;
    border-bottom: solid 1px #A48872; 
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+background: none !important ;
+border: none !important;
+  font-family: Major Mono Display;
 }
 .header {
   text-shadow: 3px 2px #D2BFA1;
@@ -44,33 +56,16 @@ background: none;
   padding: 2px;
   background: none;
 }
-.melie {
- background: url('./melie.jpg');
-  background-size: cover !important;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height:calc(100vh - 120px);
-}
-.content-wrapper {
-  background: url('./muggsy.jpeg');
-  background-size: cover !important;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height:calc(100vh - 120px);
-      -webkit-filter: blur(5px);
-    filter: blur(5px);
-  }
+
 .content {
 position: absolute;
   font-family: Inconsolata;
-   color: #EEF5F8;
   background-color: rgb(227, 229, 232,0.2);
-min-height:calc(100vh - 120px);
 z-index: 999;
 padding: 2px;
 }
 .content > .card {
-    width: 25rem;
+    width: 50rem;
      background-color: rgb(164, 136, 114,0.2) ;
 }
 .heading {
@@ -84,3 +79,42 @@ padding: 2px;
   font-family: Zen Loop;
   background-color: rgb(164, 136, 114,0.2);
     border-bottom: solid 1px;}
+      .body {
+    fill: #b9b9b9;
+    stroke: #000000;
+    stroke-width: 1.4;
+    stroke-linejoin: round;
+    opacity: 1;
+  }
+   #map_side  .active {
+    fill: #84200f;
+    stroke: #84200f;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    opacity: .25;
+  }
+
+    .btn-outline-tc {
+      border: solid 1px #a64e26 !important;
+      color: #a64e26 !important;
+    }
+    .btn-outline-tc:hover {
+        background-color: #a64e26 !important;
+      color: #FBF8F5 !important;
+    }
+    input:checked + .btn-outline-tc {
+    background-color: #a64e26 !important;
+      color: #FBF8F5 !important;
+    }
+        .btn-outline-nb {
+      border: solid 1px #222445 !important;
+      color: #222445 !important;
+    }
+    .btn-outline-nb:hover {
+        background-color: #222445 !important;
+      color: #FBF8F5 !important;
+    }
+    input:checked + .btn-outline-nb {
+    background-color: #222445 !important;
+      color: #FBF8F5 !important;
+    }
