@@ -2268,7 +2268,7 @@ function filterNorms(sex, age, normData, div){
 			var ssNormData = filterNorms(sex, currAge, ssNorms, "ssNorms");
 			  normChart("#ssNorm",150, "x", "p", "dif", "Sit to stand","normSs","ssValue", "ssNorms",ssNormData);
 			d3.select("#bcBullets").select("svg").remove();
-			var bcData = genBcData(sex, currAge, race);
+	
 			var margin = {
     top: 25,
     right: 40,
@@ -2281,7 +2281,7 @@ function filterNorms(sex, age, normData, div){
    .width(width)
    .height(height);
    var svg = d3.select("#bcBullets").selectAll("svg")
-         .data(bcData)
+         .data( genBcData(sex, currAge, race))
        .enter().append("svg")
          .attr("class", "bullet mt-5")
          .attr("viewBox", "0 0 700 100")
@@ -2310,11 +2310,10 @@ function filterNorms(sex, age, normData, div){
      }); 
 
 		}
-		fillValues();
-		  $("input").on("keyup", function(){
-fillValues();
-  })
-  $("input").on("change", function(){
+		
+
+  $("#report-tab").on("click", function(){
+  	d3.select("#reportView").selectAll("svg").remove();
   	fillValues();
   })
 	</script>    	
