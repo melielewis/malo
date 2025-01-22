@@ -1,0 +1,176 @@
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.1/d3.min.js"></script>
+  <script src="https://unpkg.com/simple-statistics@7.7.0/dist/simple-statistics.min.js"></script>
+<style>
+@import 'https://fonts.googleapis.com/css?family=Major+Mono+Display';
+@import 'https://fonts.googleapis.com/css?family=Inconsolata';
+@import 'https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text';
+@import 'https://fonts.googleapis.com/css2?family=Zen+Loop';
+@import "https://use.fontawesome.com/releases/v6.3.0/css/all.css";
+* {
+
+   font-family: Inconsolata;
+}
+div, p,ul, li, .card, .fa-solid,h1, span,i {
+background: none;
+}
+    .cap {
+      margin-bottom: -15px;
+      padding-bottom: -15px;
+      font-size: 10px;
+        text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+.header-primary {
+   background-color: rgb(164, 136, 114,0.2) ;
+   border-bottom: solid 1px #A48872; 
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+background: none !important ;
+border: none !important;
+  font-family: Major Mono Display;
+}
+.header {
+  text-shadow: 3px 2px #D2BFA1;
+  background: none;
+  color:  #413937;
+  text-transform: uppercase;
+  font-size: 2.9vw !important;
+  line-height: 1.5em;
+   letter-spacing: 2px;
+  font-family: Major Mono Display;
+  text-align: center;
+  }
+  nav > .container-fluid {
+     background: none !important; 
+    }
+
+  .nav-link {
+      background: none;
+      cursor: pointer;
+    }
+.secondary {
+  font-family: Zen Loop;
+  color: #1F1F1F;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 1.5vw;
+ text-align: center;
+  padding: 2px;
+  background: none;
+}
+
+.content {
+position: absolute;
+  font-family: Inconsolata;
+  background-color: rgb(227, 229, 232,0.2);
+z-index: 999;
+padding: 2px;
+}
+.content > .card {
+    width: 50rem;
+     background-color: rgb(164, 136, 114,0.2) ;
+}
+.heading {
+    text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+  color: #A48872;
+  letter-spacing: 6px;
+  text-shadow: 3px 2px #D2BFA1;
+  font-family: Zen Loop;
+  background-color: rgb(164, 136, 114,0.2);
+    border-bottom: solid 1px;}
+      .body {
+    fill: #b9b9b9;
+    stroke: #000000;
+    stroke-width: 1.4;
+    stroke-linejoin: round;
+    opacity: 1;
+  }
+   #map_side  .active {
+    fill: #84200f;
+    stroke: #84200f;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    opacity: .25;
+  }
+
+    .btn-outline-tc {
+      border: solid 1px #a64e26 !important;
+      color: #a64e26 !important;
+    }
+    .btn-outline-tc:hover {
+        background-color: #a64e26 !important;
+      color: #FBF8F5 !important;
+    }
+    input:checked + .btn-outline-tc {
+    background-color: #a64e26 !important;
+      color: #FBF8F5 !important;
+    }
+        .btn-outline-nb {
+      border: solid 1px #222445 !important;
+      color: #222445 !important;
+    }
+    .btn-outline-nb:hover {
+        background-color: #222445 !important;
+      color: #FBF8F5 !important;
+    }
+    input:checked + .btn-outline-nb {
+    background-color: #222445 !important;
+      color: #FBF8F5 !important;
+    }
+    .fa-home {
+    	cursor: pointer;
+    }
+    </style>
+  </head>
+  <body>
+ 	 <header class="navbar navbar-expand-lg bd-navbar sticky-top p-0">
+ 	 	<nav class="container-xxl  flex-row flex-wrap header-primary pb-0 mb-0 justify-content-between fs-3">
+ 	 	<a href="https://melielewis.github.io/malo/"><i class="fas fa-home"></i></a>
+ 	 	How should future NBA draft picks be valued?
+ 	 	</nav>
+	</header>
+	<div class="container-fluid">
+		<div class="card mt-3">
+			<div class="card-header">
+				<ul class="nav nav-tabs"  role="tablist">
+					<li class="nav-item " role="presentation">
+					<a class="nav-link active" id="journey-tab" data-bs-toggle="tab" data-bs-target="#journey" type="button" role="tab" aria-controls="journey" aria-selected="true">
+						Part 1: The Journey of the Picks</a>
+        			</li>
+        			<li class="nav-item " role="presentation" >
+        				<a  class="nav-link" id="conditions-tab" data-bs-toggle="tab" data-bs-target="#conditions" type="button" role="tab" aria-controls="conditionsTab" aria-selected="false">
+						Part 2: Swaps, conditions and protections</a>
+        			</li>
+        			        			<li class="nav-item " role="presentation" >
+        				<a  class="nav-link" id="value-tab" data-bs-toggle="tab" data-bs-target="#value" type="button" role="tab" aria-controls="valueView" aria-selected="false">
+						Part 3: What is value, anyway?</a>
+        			</li>
+        		</ul>
+			</div> <!--- end card-header !--->
+			<div class="tab-content">
+			<div class="tab-pane active" id="journey" role="tabpanel" aria-labelledby="journey-tab">
+					<div class="card-body">
+					</div> <!--- end card-body (data) !--->
+            	</div> <!--- end data tab-pane !--->
+            <div class="tab-pane " id="conditions" role="tabpanel" aria-labelledby="conditions-tab">
+            		<div class="card-body">
+					</div> <!--- end card-body (report) !--->
+            	</div> <!--- end report tab-pane !--->
+            </div> <!--- end tab-content !--->
+       	</div> <!--- end card !--->
+	</div> <!--- end container !--->
+</body>
+<script>
+var drafts = d3.csv("./allPlayers.csv", function(data) {
+    console.log(data);
+});
+</script>
