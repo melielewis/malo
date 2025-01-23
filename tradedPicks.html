@@ -4,7 +4,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.1/d3.min.js"></script>
-
   <script src="https://unpkg.com/simple-statistics@7.7.0/dist/simple-statistics.min.js"></script>
 <style>
 @import 'https://fonts.googleapis.com/css?family=Major+Mono+Display';
@@ -160,6 +159,9 @@ padding: 2px;
 			<div class="tab-content">
 			<div class="tab-pane active" id="journey" role="tabpanel" aria-labelledby="journey-tab">
 					<div class="card-body">
+						<h5 class="card-title">How common are trades that include future draft picks?</h5>
+						<div class="card-text">
+						</div>
 					</div> <!--- end card-body (data) !--->
             	</div> <!--- end data tab-pane !--->
             <div class="tab-pane " id="conditions" role="tabpanel" aria-labelledby="conditions-tab">
@@ -171,10 +173,13 @@ padding: 2px;
 	</div> <!--- end container !--->
 </body>
 <script>
-d3.csv("./allPlayers.csv").then(function(d){
-const drafts = d;
-});
-
-alert(drafts.length);
-
+function Get(yourUrl) {
+  var Httpreq = new XMLHttpRequest(); // a new request
+  Httpreq.open("GET", yourUrl, false);
+  Httpreq.send(null);
+  return Httpreq.responseText;
+}
+var test = Get("./allPlayers.csv");
+alert(test);
+var teamTotals = [{"team":"76ers","Round1":24,"Round2":38,"Total":62},{"team":"Blazers","Round1":24,"Round2":25,"Total":49},{"team":"Bucks","Round1":17,"Round2":23,"Total":40},{"team":"Bulls","Round1":22,"Round2":12,"Total":34},{"team":"Cavaliers","Round1":18,"Round2":15,"Total":33},{"team":"Celtics","Round1":25,"Round2":24,"Total":49},{"team":"Clippers","Round1":12,"Round2":16,"Total":28},{"team":"Grizzlies","Round1":21,"Round2":14,"Total":35},{"team":"Hawks","Round1":23,"Round2":22,"Total":45},{"team":"Heat","Round1":12,"Round2":14,"Total":26},{"team":"Hornets","Round1":26,"Round2":21,"Total":47},{"team":"Jazz","Round1":25,"Round2":23,"Total":48},{"team":"Kings","Round1":21,"Round2":22,"Total":43},{"team":"Knicks","Round1":20,"Round2":14,"Total":34},{"team":"Lakers","Round1":16,"Round2":22,"Total":38},{"team":"Magic","Round1":21,"Round2":21,"Total":42},{"team":"Mavericks","Round1":11,"Round2":17,"Total":28},{"team":"Nets","Round1":21,"Round2":17,"Total":38},{"team":"Nuggets","Round1":16,"Round2":16,"Total":32},{"team":"Pacers","Round1":18,"Round2":24,"Total":42},{"team":"Pelicans","Round1":17,"Round2":21,"Total":38},{"team":"Pistons","Round1":18,"Round2":26,"Total":44},{"team":"Raptors","Round1":17,"Round2":14,"Total":31},{"team":"Rockets","Round1":20,"Round2":13,"Total":33},{"team":"Spurs","Round1":21,"Round2":25,"Total":46},{"team":"Suns","Round1":25,"Round2":18,"Total":43},{"team":"Thunder","Round1":28,"Round2":22,"Total":50},{"team":"Timberwolves","Round1":25,"Round2":27,"Total":52},{"team":"Warriors","Round1":18,"Round2":16,"Total":34},{"team":"Wizards","Round1":18,"Round2":18,"Total":36}];
 </script>
