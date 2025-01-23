@@ -171,8 +171,20 @@ padding: 2px;
 	</div> <!--- end container !--->
 </body>
 <script>
-var drafts = d3.csv("./allPlayers.csv").then(function(data){
- return(data)
+var drafts = [];
+d3.csv("./allPlayers.csv", function(data){
+	data.forEach(function(d){
+		drafts.push({
+			year: d.year,
+			pickExact: d.pickExact,
+			pickRound: d.pickRound,
+			player: d.player,
+			origTeam: d.origTeam,
+			nTrades: d.nTrades,
+			finalTeam: d.finalTeam,
+			playerId: d.playerId
+	});
+});
 });
 
 
