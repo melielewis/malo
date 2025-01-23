@@ -172,12 +172,9 @@ padding: 2px;
 </body>
 <script>
 var drafts = [];
-d3.csv("./allPlayers.csv").then(function(d){
-		drafts.push(d);
-		console.log(d);
-});
+d3.csv("./allPlayers.csv").then(data => console.log(data));
 
-alert(drafts.length);
-alert(d.length);
+//alert(drafts.length);
+alert(data.length);
 
 </script>
