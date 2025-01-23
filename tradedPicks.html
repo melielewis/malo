@@ -171,8 +171,8 @@ padding: 2px;
 	</div> <!--- end container !--->
 </body>
 <script>
-var drafts = d3.csv("./allPlayers.csv").then(function(d){
-return(d)
+d3.csv("./allPlayers.csv").then(function(d){
+const drafts = d;
 });
 
 alert(drafts.length);
