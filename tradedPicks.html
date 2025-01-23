@@ -171,10 +171,11 @@ padding: 2px;
 	</div> <!--- end container !--->
 </body>
 <script>
-var drafts = [];
-d3.csv("./allPlayers.csv").then(data => console.log(data));
+var drafts;
+d3.csv("./allPlayers.csv").then(function(d){
+drafts = d
+});
 
-//alert(drafts.length);
-alert(data.length);
+alert(drafts.length);
 
 </script>
