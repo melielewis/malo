@@ -170,7 +170,7 @@ padding: 2px;
 	</div> <!--- end container !--->
 </body>
 <script>
-var drafts = d3.csv("./allPlayers.csv");
-alert(drafts.length);s
+var drafts = FileAttachment("./allPlayers.csv").csv({typed: true});
+alert(drafts.length);
 
 </script>
