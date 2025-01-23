@@ -170,7 +170,20 @@ padding: 2px;
 	</div> <!--- end container !--->
 </body>
 <script>
-var drafts = FileAttachment("./allPlayers.csv").csv({typed: true});
+var drafts = d3.csv("./allPlayers.csv").then(function(data){
+	return {
+		year: data.year,
+		pickExact: data.pickExacty
+		round: data.pickRound,
+		player: data.player,
+		origTeam: data.origTeam,
+		nTrades: data.nTrades,
+		finalTeam: data.finalTeam,
+		idPlayer: data.idPlayer	
+	}
+});
+
+
 alert(drafts.length);
 
 </script>

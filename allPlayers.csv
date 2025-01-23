@@ -1,4 +1,4 @@
-"","id","year","pickExact","pickRound","player","origTeam","nTrades","finalTeam","namePlayer","idPlayer","idTeam"
+"row","id","year","pickExact","pickRound","player","origTeam","nTrades","finalTeam","namePlayer","idPlayer","idTeam"
 "1","2005_1",2005,1,"1","Andrew Bogut","Bucks",0,"Bucks","Andrew Bogut",101106,1610612749
 "2","2005_2",2005,2,"1","Marvin Williams","Hawks",0,"Hawks","Marvin Williams",101107,1610612737
 "3","2005_3",2005,3,"1","Deron Williams","Blazers",1,"Jazz","Deron Williams",101114,1610612762
