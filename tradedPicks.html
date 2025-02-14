@@ -1,12 +1,11 @@
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.1/d3.min.js"></script>
-  <script src="https://unpkg.com/simple-statistics@7.7.0/dist/simple-statistics.min.js"></script>
-<style>
-@import 'https://fonts.googleapis.com/css?family=Major+Mono+Display';
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <style>
+  @import 'https://fonts.googleapis.com/css?family=Major+Mono+Display';
 @import 'https://fonts.googleapis.com/css?family=Inconsolata';
 @import 'https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text';
 @import 'https://fonts.googleapis.com/css2?family=Zen+Loop';
@@ -45,6 +44,17 @@ border: none !important;
   font-family: Major Mono Display;
   text-align: center;
   }
+ .svg-title {
+  	font-size: 2vw !important;
+  	 text-shadow: 3px 2px #D2BFA1;
+  background: none;
+  color:  #413937;
+  text-transform: uppercase;
+    line-height: 1.5em;
+   letter-spacing: 2px;
+  font-family: Major Mono Display;
+  text-align: center;
+  }
   nav > .container-fluid {
      background: none !important; 
     }
@@ -64,7 +74,15 @@ border: none !important;
   padding: 2px;
   background: none;
 }
-
+.secondary-header {
+    font-family: Zen Loop;
+  color: #1F1F1F;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 5px;
+    font-weight: 600;
+}
 .content {
 position: absolute;
   font-family: Inconsolata;
@@ -94,13 +112,7 @@ padding: 2px;
     stroke-linejoin: round;
     opacity: 1;
   }
-   #map_side  .active {
-    fill: #84200f;
-    stroke: #84200f;
-    stroke-width: 1.5;
-    stroke-linejoin: round;
-    opacity: .25;
-  }
+  
 
     .btn-outline-tc {
       border: solid 1px #a64e26 !important;
@@ -129,81 +141,624 @@ padding: 2px;
     .fa-home {
     	cursor: pointer;
     }
-    </style>
-  </head>
-  <body>
- 	 <header class="navbar navbar-expand-lg bd-navbar sticky-top p-0">
- 	 	<nav class="container-xxl  flex-row flex-wrap header-primary pb-0 mb-0 justify-content-between fs-3">
- 	 	<a href="https://melielewis.github.io/malo/"><i class="fas fa-home"></i></a>
- 	 	How should future NBA draft picks be valued?
- 	 	</nav>
-	</header>
-	<div class="container-fluid">
-		<div class="card mt-3">
-			<div class="card-header">
-				<ul class="nav nav-tabs"  role="tablist">
-					<li class="nav-item " role="presentation">
-					<a class="nav-link active" id="journey-tab" data-bs-toggle="tab" data-bs-target="#journey" type="button" role="tab" aria-controls="journey" aria-selected="true">
-						Part 1: The Journey of the Picks</a>
-        			</li>
-        			<li class="nav-item " role="presentation" >
-        				<a  class="nav-link" id="conditions-tab" data-bs-toggle="tab" data-bs-target="#conditions" type="button" role="tab" aria-controls="conditionsTab" aria-selected="false">
-						Part 2: Swaps, conditions and protections</a>
-        			</li>
-        			        			<li class="nav-item " role="presentation" >
-        				<a  class="nav-link" id="value-tab" data-bs-toggle="tab" data-bs-target="#value" type="button" role="tab" aria-controls="valueView" aria-selected="false">
-						Part 3: What is value, anyway?</a>
-        			</li>
-        		</ul>
-			</div> <!--- end card-header !--->
-			<div class="tab-content">
-			<div class="tab-pane active" id="journey" role="tabpanel" aria-labelledby="journey-tab">
-					<div class="card-body">
-						<h5 class="card-title">How common are trades that include future draft picks?</h5>
-						<div class="card-text">
-						</div>
-					</div> <!--- end card-body (data) !--->
-            	</div> <!--- end data tab-pane !--->
-            <div class="tab-pane " id="conditions" role="tabpanel" aria-labelledby="conditions-tab">
-            		<div class="card-body">
-					</div> <!--- end card-body (report) !--->
-            	</div> <!--- end report tab-pane !--->
-            </div> <!--- end tab-content !--->
-       	</div> <!--- end card !--->
-	</div> <!--- end container !--->
+.btn-outline-dg {
+  border: solid 1px #5C5451 !important;
+  color: #5C5451 !important;
+}
+.btn-outline-dg:hover {
+    background-color: #5C5451 !important;
+  color: #FBF8F5 !important;
+}
+input:checked + .btn-outline-dg {
+background-color: #5C5451 !important;
+  color: #FBF8F5 !important;
+}
+.inner-card {
+  border: none !important;
+}
+  </style>
+</head>
+<header class="navbar navbar-expand-lg bd-navbar  p-0">
+  <nav class="container-xxl  flex-row flex-wrap header-primary pb-0 mb-0 justify-content-between fs-3">
+    <a href="https://melielewis.github.io/malo/"><i class="fas fa-home"></i></a>
+    How should future NBA draft picks be valued?
+  </nav>
+</header>
+<div class="container-fluid">
+  <div class="card mt-3">
+    <div class="card-header">
+      <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li class="nav-item " role="presentation">
+          <a class="nav-link active" id="journey-tab" data-bs-toggle="tab" data-bs-target="#journey" type="button" role="tab" aria-controls="journey" aria-selected="true">
+            Part 1: The Journey of the Picks</a>
+        </li>
+        <li class="nav-item " role="presentation">
+          <a class="nav-link" id="conditions-tab" data-bs-toggle="tab" data-bs-target="#conditions" type="button" role="tab" aria-controls="conditionsTab" aria-selected="false">
+            Part 2: Swaps, conditions and protections</a>
+        </li>
+        <li class="nav-item " role="presentation">
+          <a class="nav-link" id="value-tab" data-bs-toggle="tab" data-bs-target="#value" type="button" role="tab" aria-controls="valueView" aria-selected="false">
+            Part 3: What is value, anyway?</a>
+        </li>
+      </ul>
+    </div>
+    <!--- end card-header !--->
+    <div class="tab-content">
+      <div class="tab-pane active" id="journey" role="tabpanel" aria-labelledby="journey-tab">
+        <div class="card-body">
+        <p class="card-text">
+        A while back, I made an impulsive decision to quit a well-paying job without a plan because I was miserable. I had lost my curiosity, motivation and direction. Interviewing for new jobs, I recalled the story that triggered my need to understand statistics - how it works, when it works and the rules implied (it was a debate on the merits of Tony Parker vs Rajon Rondo - this was 2013 y'all). I missed sports, so I asked a friend still working in the field, "what's an important, but unanswered question in the league?"
+            <br>
+            <p class="secondary text-center"> "How do you value a future draft pick?"</p>
+           No matter how you approach the question, the only certain part of the answer is the beginning: <b>it depends</b>...<br><br>
+           So let's start with context and some data - looking at drafts from 2005-2024 there were a total of 1,200 draft picks made* (only 1,194 in actuality - 6 were rescinded for various reasons). Each team was alotted 40 total picks in this timeframe, 20 first rounders, 20 seconds - at minimum, each team had to make 10 first round picks (a la the Stepien Rule), but beyond that, the decision of whether or not to keep or trade their picks rested on the decision-makers. <br>  <br>This begs the question - how much do teams really differ in terms of accumulated draft picks?<br><br>
+           <p class="secondary text-center">*Cue Sam Hinkie, stage right*</p>
+            </p>
+    
+        <div class="row row-cols-2 card-header">
+        <div class="col">
+        <span class="cap">Highlight another team</span>
+        <select class="form-select" id="highlighter">
+        <option value="76ers" selected>76ers</option><option value="Blazers">Blazers</option><option value="Bucks">Bucks</option><option value="Bulls">Bulls</option><option value="Cavaliers">Cavaliers</option><option value="Celtics">Celtics</option><option value="Clippers">Clippers</option><option value="Grizzlies">Grizzlies</option><option value="Hawks">Hawks</option><option value="Heat">Heat</option><option value="Hornets">Hornets</option><option value="Jazz">Jazz</option><option value="Kings">Kings</option><option value="Knicks">Knicks</option><option value="Lakers">Lakers</option><option value="Magic">Magic</option><option value="Mavericks">Mavericks</option><option value="Nets">Nets</option><option value="Nuggets">Nuggets</option><option value="Pacers">Pacers</option><option value="Pelicans">Pelicans</option><option value="Pistons">Pistons</option><option value="Raptors">Raptors</option><option value="Rockets">Rockets</option><option value="Spurs">Spurs</option><option value="Suns">Suns</option><option value="Thunder">Thunder</option><option value="Timberwolves">Timberwolves</option><option value="Warriors">Warriors</option><option value="Wizards">Wizards</option></select>
+        	</select></div>
+        	<div class="col"><span class="cap">Filter by round</span>
+                     <div class="btn-group d-flex">
+              <input type="radio" value="" name="round" class="btn-check" id="both" checked><label class="btn btn-outline-dg" for="both">Both</label>
+              <input type="radio" name="round" value="first" id="firstRound" class="btn-check"><label for="firstRound" class="btn btn-outline-dg">First round</label><input type="radio" name="round" class="btn-check" id="secondRound" value="second"><label for="secondRound" class="btn btn-outline-dg">Second round</label>
+            </div></div>
+            </div>
+          <div class="card-group">
+            <div class="card inner-card">
+              <div id="bumpSvg">
+              </div>
+            </div>
+          <div class="card inner-card">
+            <div id="teamSvg"></div>
+          </div>
+        </div> <!--- end card-group !--->
+        <p class="card-text">
+        The 76ers lead teams in total draft picks and it's not close. They nearly doubled their alotted second round picks, having made 38 since 2005. OKC, meanwhile, holds the lead for first round picks having made 8 more than their alotted 20. <br><br>
+        
+But none of this is news. The question remains: does "the process" work? And whose process? Sam Hinkie's? Sam Presti's? Or is it the Heat, Mavericks, Clippers, Nuggets... who traded most of their future "assets" in order to change their present? <br><br>
+
+First things first - in order to assign "value" to a pick, we have to read the fine print and consider the ways traded picks differ beyond the round.... COMING SOON       </p>
+
+<!--- differences: round, years to draft, protections !--->
+      </div>
+  
+      <!--- end card-body !--->
+      </div> <!--- end journey-pane !--->
+      <div class="tab-pane " id="conditions" role="tabpanel" aria-labelledby="conditions-tab">
+        <div class="card-body">
+        
+        </div>    <!--- end card-body (conditions) !--->
+     
+      </div> <!--- end condition tab-pane !--->
+      <div class="tab-pane " id="value" role="tabpanel" aria-labelledby="value-tab">
+        <div class="card-body">
+        </div> <!--- end card-body (value) !--->
+      </div> <!--- end value tab-pane !--->
+    </div> <!--- end tab-content !--->
+    
+  </div>  <!--- end card !--->
+ 
+</div>
+<!--- end container !--->
 </body>
 <script>
+
+
+var teamTotals = [
+  { team: "76ers", Round1: 24, Round2: 38, Total: 62, color:"#006bb6",text:"#c4ced4"},
+  { team: "Blazers", Round1: 24, Round2: 25, Total: 49,color:"#e03a3e",text:"#26282a" },
+  { team: "Bucks", Round1: 17, Round2: 23, Total: 40, color:"#00471b",text:"#eee1c6"},
+  { team: "Bulls", Round1: 22, Round2: 12, Total: 34, color:"#ce1141" ,text:"#000000"},
+  { team: "Cavaliers", Round1: 18, Round2: 15, Total: 33, color:"#860038",text:"#fdbb30" },
+  { team: "Celtics", Round1: 25, Round2: 24, Total: 49, color:"#007a33" ,text:"#ba9653"},
+  { team: "Clippers", Round1: 12, Round2: 16, Total: 28, color:"#c8102e" ,text:"#bec0c2"},
+  { team: "Grizzlies", Round1: 21, Round2: 14, Total: 35, color:"#5d76a9",text:"#f5b112"},
+  { team: "Hawks", Round1: 23, Round2: 22, Total: 45,color:"#87674f",text:"#c1d32f" },
+  { team: "Heat", Round1: 12, Round2: 14, Total: 26, color:"#98002e",text:"#f9a01b"},
+  { team: "Hornets", Round1: 26, Round2: 21, Total: 47, color:"#00788c",text:"#f9423a" },
+  { team: "Jazz", Round1: 25, Round2: 23, Total: 48, color:"#002b5c" ,text:"#f9a01b"},
+  { team: "Kings", Round1: 21, Round2: 22, Total: 43, color:"#5a2d81",text:"#ffffff" },
+  { team: "Knicks", Round1: 20, Round2: 14, Total: 34,color:"#f58426",text:"#006bb6" },
+  { team: "Lakers", Round1: 16, Round2: 22, Total: 38,color:"#552583",text:"#f9a01b" },
+  { team: "Magic", Round1: 21, Round2: 21, Total: 42, color:"#0077c0" ,text:"#c4ced4"},
+  { team: "Mavericks", Round1: 11, Round2: 17, Total: 28, color:"#00538c",text:"#b8c4ca" },
+  { team: "Nets", Round1: 21, Round2: 17, Total: 38, color:"#000000",text:"white"},
+  { team: "Nuggets", Round1: 16, Round2: 16, Total: 32, color:"#0e2240",text:"#fec524" },
+  { team: "Pacers", Round1: 18, Round2: 24, Total: 42, color:"#002d62",text: "#fdbb30"  },
+  { team: "Pelicans", Round1: 17, Round2: 21, Total: 38, color:"#0c2340",text:"#17bfdd" },
+  { team: "Pistons", Round1: 18, Round2: 26, Total: 44, color:"#1d42ba",text:"#bec0c2" },
+  { team: "Raptors", Round1: 17, Round2: 14, Total: 31, color:"#b4975a",text:"#000000" },
+  { team: "Rockets", Round1: 20, Round2: 13, Total: 33, color:"#ba0c2f" ,text:"#ffc72c"},
+  { team: "Spurs", Round1: 21, Round2: 25, Total: 46,color:"#000000",text:"#ef426f" },
+  { team: "Suns", Round1: 25, Round2: 18, Total: 43, color:"#e56020" ,text:"#1d1160"},
+  { team: "Thunder", Round1: 28, Round2: 22, Total: 50,color:"#ef3b24" ,text:"#007ac1"},
+  { team: "Timberwolves", Round1: 25, Round2: 27, Total: 52, color:"#78be20",text:"#0c2340" },
+  { team: "Warriors", Round1: 18, Round2: 16, Total: 34, color:"#1d428a",text:"#ffc72c"},
+  { team: "Wizards", Round1: 18, Round2: 18, Total: 36 ,color:"#e31837",text:"#002b5c"}
+];
+
+
 function Get(yourUrl) {
   var Httpreq = new XMLHttpRequest(); // a new request
   Httpreq.open("GET", yourUrl, false);
   Httpreq.send(null);
   return Httpreq.responseText;
 }
+var teams = teamTotals.map((d) => d.team);
+var colors = teamTotals.map((d) => d.color);
+var textCol = teamTotals.map((d) => d.text);
+var url =
+  "https://raw.githubusercontent.com/melielewis/malo/refs/heads/main/allPlayers.csv";
+var allPicks = d3.csvParse(Get(url));
+var years = Array.from(new Set(allPicks.flatMap((d) => [d.year])));
+function aggBy(round) {
+  var teamsYearly = [];
+  for (var i = 0; i < teams.length; i++) {
+    var tm = teams[i];
+    var r1Cumulative = 0;
+    var r2Cumulative = 0;
+    var bothCumulative = 0;
+    var col = colors[i];
+    var txt= textCol[i];
+    for (var j = 0; j < years.length; j++) {
+      var yr = years[j];
+      var r1 = allPicks.filter(
+        (obj) =>
+          (obj.finalTeam === tm) & (obj.year === yr) & (obj.pickRound === "1")
+      ).length;
+      r1Cumulative += r1;
+      var r2 = allPicks.filter(
+        (obj) =>
+          (obj.finalTeam === tm) & (obj.year === yr) & (obj.pickRound === "2")
+      ).length;
+      r2Cumulative += r2;
+      var total = r1+r2;
+      bothCumulative += total;
+      teamsYearly.push({
+        team: tm,
+        year: yr,
+        r1: r1,
+        r1Sum:  r1Cumulative,
+        r2: r2,
+        r2Sum: r2Cumulative,
+        total: total,
+        bothSum: bothCumulative,
+        color: col,
+        tt: txt
+      });
+    }
+  }
+  const groupedByYear = teamsYearly.reduce((result, item) => {
+    if (!result[item.year]) {
+        result[item.year] = {};
+    }
+    result[item.year][item.team] = item;
+    return result;
+}, {});
+if(round == ""){
+  for (const year in groupedByYear) {
+    var t = [];
+    var values = groupedByYear[year];   
+    Object.keys(values).forEach((_k) => {       
+        t.push([_k, values[_k].bothSum]);
+      });
+    t.sort((a, b) => b[1] - a[1]);
+    t = t.map(d => d[0]);
+    Object.keys(values).forEach((_k) => {
+        groupedByYear[year][_k] = {
+        	color: groupedByYear[year][_k].color,
+        	tt: groupedByYear[year][_k].tt,
+          bothSum: groupedByYear[year][_k].bothSum,
+          rank: t.indexOf(_k) + 1,
+        };
+      });  
+	}
+}
+if(round == "first"){
+  for (const year in groupedByYear) {
+    var t = [];
+    var values = groupedByYear[year];   
+    Object.keys(values).forEach((_k) => {       
+        t.push([_k, values[_k].r1Sum]);
+      });
+    t.sort((a, b) => b[1] - a[1]);
+    t = t.map(d => d[0]);
+    Object.keys(values).forEach((_k) => {
+        groupedByYear[year][_k] = {
+        color: groupedByYear[year][_k].color,
+        	tt: groupedByYear[year][_k].tt,
+          bothSum: groupedByYear[year][_k].r1Sum,
+          rank: t.indexOf(_k) + 1,
+        };
+      });  
+	}
+}
+if(round == "second"){
+  for (const year in groupedByYear) {
+    var t = [];
+    var values = groupedByYear[year];   
+    Object.keys(values).forEach((_k) => {       
+        t.push([_k, values[_k].r2Sum]);
+      });
+    t.sort((a, b) => b[1] - a[1]);
+    t = t.map(d => d[0]);
+    Object.keys(values).forEach((_k) => {
+        groupedByYear[year][_k] = {
+        	color: groupedByYear[year][_k].color,
+        	tt: groupedByYear[year][_k].tt,
+          bothSum: groupedByYear[year][_k].r2Sum,
+          rank: t.indexOf(_k) + 1,
+        };
+      });  
+	}
+}
+return(groupedByYear)
+}
 
-function csvJSON(csv){
 
-  var lines=csv.split("\n");
+var ranked = aggBy("");
 
-  var result = [];
+function lollipopLollipop(id, filter, data) {
+  d3.select(id).select("svg").remove();
 
-  var headers=lines[0].split(",");
+  var margin = { top: 35, right: 25, bottom: 0, left: 25 },
+    width = 700 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
+  var svg = d3
+    .select(id)
+    .append("svg")
+    .attr("viewBox", "0 0 750 750")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var x, y, xAxis, yAxis;
+  y = d3
+    .scalePoint()
+    .domain(d3.range(data.length))
+    .rangeRound([margin.top, height - margin.bottom])
+    .padding(0.1);
+  svg
+    .append("g")
+    .append("text")
+    .text("total players drafted (2005-2024)")
+    .attr("class", "svg-title");
+  data.sort((a, b) => d3.descending(a.Total, b.Total));
+  if (filter == "") {
+    x = d3
+      .scaleLinear()
+      .domain(d3.extent(data, (d) => d.Total))
+      .rangeRound([margin.left, width - margin.right]);
 
-  for(var i=1;i<lines.length;i++){
+    xAxis = svg
+      .append("g")
+      .attr("transform", `translate(0,${margin.top})`)
+      .call(d3.axisTop(x).ticks(0).tickFormat(d3.format("+,d")))
+      .call((g) => g.select(".domain").remove());
+    yAxis = svg
+      .append("g")
+      .attr("transform", `translate(${x(40)},0)`)
+      .call(
+        d3
+          .axisLeft(y)
+          .tickFormat((i) => data[i].team)
+          .tickSize(0)
+          .tickPadding(6)
+      )
+      .call((g) =>
+        g
+          .selectAll(".tick text")
+          .filter((i) => data[i].Total < 40)
+          .attr("text-anchor", "start")
+          .attr("x", 6)
+      );
+    svg
+      .append("g")
+      .attr("stroke", "#ccc")
+      .attr("stroke-width", 2)
+      .selectAll("line")
+      .data(data)
+      .join("line")
+      .attr("x1", x(40))
+      .attr("x2", (d) => x(d.Total))
+      .attr("y1", (d, i) => y(i))
+      .attr("y2", (d, i) => y(i));
+    svg
+      .append("g")
+      .selectAll("circle")
+      .data(data)
+      .join("circle")
+      .attr("fill", (d) => d3.schemeSet1[d.Total > 40 ? 1 : 0])
+      .attr("cx", (d) => x(d.Total))
+      .attr("cy", (d, i) => y(i))
+      .attr("r", 6);
+    svg
+      .append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .selectAll("text")
+      .data(data)
+      .join("text")
+      .attr("text-anchor", (d) => (d.Total < 40 ? "end" : "start"))
+      .attr("x", (d) => x(d.Total) + Math.sign(d.Total - 40) * 8)
+      .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
+      .attr("dy", "0.35em")
+      .text((d) => d.Total);
+  }
+  if (filter == "first") {
+    data.sort((a, b) => d3.descending(a.Round1, b.Round1));
 
-      var obj = {};
-      var currentline=lines[i].split(",");
+    x = d3
+      .scaleLinear()
+      .domain(d3.extent(data, (d) => d.Round1))
+      .rangeRound([margin.left, width - margin.right]);
+    xAxis = svg
+      .append("g")
+      .attr("transform", `translate(0,${margin.top})`)
+      .call(d3.axisTop(x).ticks(0).tickFormat(d3.format("+,d")))
+      .call((g) => g.select(".domain").remove());
+    yAxis = svg
+      .append("g")
+      .attr("transform", `translate(${x(20)},0)`)
+      .call(
+        d3
+          .axisLeft(y)
+          .tickFormat((i) => data[i].team)
+          .tickSize(0)
+          .tickPadding(6)
+      )
+      .call((g) =>
+        g
+          .selectAll(".tick text")
+          .filter((i) => data[i].Round1 < 20)
+          .attr("text-anchor", "start")
+          .attr("x", 6)
+      );
+    svg
+      .append("g")
+      .attr("stroke", "#ccc")
+      .attr("stroke-width", 2)
+      .selectAll("line")
+      .data(data)
+      .join("line")
+      .attr("x1", x(20))
+      .attr("x2", (d) => x(d.Round1))
+      .attr("y1", (d, i) => y(i))
+      .attr("y2", (d, i) => y(i));
+    svg
+      .append("g")
+      .selectAll("circle")
+      .data(data)
+      .join("circle")
+      .attr("fill", (d) => d3.schemeSet1[d.Round1 > 20 ? 1 : 0])
+      .attr("cx", (d) => x(d.Round1))
+      .attr("cy", (d, i) => y(i))
+      .attr("r", 6);
+    svg
+      .append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .selectAll("text")
+      .data(data)
+      .join("text")
+      .attr("text-anchor", (d) => (d.Round1 < 20 ? "end" : "start"))
+      .attr("x", (d) => x(d.Round1) + Math.sign(d.Round1 - 20) * 8)
+      .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
+      .attr("dy", "0.35em")
+      .text((d) => d.Round1);
+  }
+  if (filter == "second") {
+     data.sort((a, b) => d3.descending(a.Round2, b.Round2));
 
-      for(var j=0;j<headers.length;j++){
-          obj[headers[j]] = currentline[j];
+    x = d3
+      .scaleLinear()
+      .domain(d3.extent(data, (d) => d.Round2))
+      .rangeRound([margin.left, width - margin.right]);
+    xAxis = svg
+      .append("g")
+      .attr("transform", `translate(0,${margin.top})`)
+      .call(d3.axisTop(x).ticks(0).tickFormat(d3.format("+,d")))
+      .call((g) => g.select(".domain").remove());
+    yAxis = svg
+      .append("g")
+      .attr("transform", `translate(${x(20)},0)`)
+      .call(
+        d3
+          .axisLeft(y)
+          .tickFormat((i) => data[i].team)
+          .tickSize(0)
+          .tickPadding(6)
+      )
+      .call((g) =>
+        g
+          .selectAll(".tick text")
+          .filter((i) => data[i].Round2 < 20)
+          .attr("text-anchor", "start")
+          .attr("x", 6)
+      );
+    svg
+      .append("g")
+      .attr("stroke", "#ccc")
+      .attr("stroke-width", 2)
+      .selectAll("line")
+      .data(data)
+      .join("line")
+      .attr("x1", x(20))
+      .attr("x2", (d) => x(d.Round2))
+      .attr("y1", (d, i) => y(i))
+      .attr("y2", (d, i) => y(i));
+    svg
+      .append("g")
+      .selectAll("circle")
+      .data(data)
+      .join("circle")
+      .attr("fill", (d) => d3.schemeSet1[d.Round2 > 20 ? 1 : 0])
+      .attr("cx", (d) => x(d.Round2))
+      .attr("cy", (d, i) => y(i))
+      .attr("r", 6);
+    svg
+      .append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .selectAll("text")
+      .data(data)
+      .join("text")
+      .attr("text-anchor", (d) => (d.Round2 < 20 ? "end" : "start"))
+      .attr("x", (d) => x(d.Round2) + Math.sign(d.Round2 - 20) * 8)
+      .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
+      .attr("dy", "0.35em")
+      .text((d) => d.Round2);
+  }
+}
+lollipopLollipop("#teamSvg", "", teamTotals);
+
+splitArray = (arr, val) => {
+    const res = [];
+    let t = [];
+    arr.forEach((elem) => {
+      if (elem !== val) {
+        t.push(elem);
+      } else if (t.length > 0) {
+        res.push(t);
+        t = [];
       }
+    })
+    if (t.length > 0) res.push(t);
+    return res;
+  };
 
-      result.push(obj);
+    function trustTheProcess(id, highlighted,ranked){
+
+ var margin = { top: 35, right: 40, bottom: 0, left: 40 },
+    width = 750 - margin.left - margin.right,
+    height = 750 - margin.top - margin.bottom;
+    	d3.select(id).select("svg").remove();
+var svg = d3
+  .select(id)
+  .append("svg")
+  .attr("viewBox", "0 0 800 800")
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  svg.append("g")
+  .append("text")
+  .text("which teams value draft picks?")
+    .attr("class", "svg-title");
+var xscale = d3
+  .scaleLinear()
+  .domain([2005, 2024])
+  .range([margin.left, width - margin.right]);
+
+const yscale = d3.scalePoint()
+    .domain(Object.keys(ranked["2024"]).map((_, i) => i + 1))
+    .rangeRound([margin.top, height - margin.bottom]);
+var xaxis = d3.axisBottom().scale(xscale).tickFormat(d3.format(""));
+svg
+  .append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+  .call(xaxis);
+var orderMinYear = Object.keys(ranked["2005"])
+    .map(t => [t, ranked["2005"][t].rank])
+    .sort((a, b) => a[1] - b[1])
+  .map(d => d[0]);
+  var orderMaxYear = Object.keys(ranked["2024"]).map(t => [t, ranked["2024"][t].rank])
+    .sort((a, b) => a[1] - b[1])
+  .map(d => d[0]);
+
+  const yAxisLeft = svg.append('g')
+    .attr('class', 'y axis yleft')
+    .attr('transform', 'translate(' + [margin.left, 0]+ ')')
+    .call(d3.axisLeft()
+      .scale(d3.scalePoint()
+      .domain(orderMinYear)
+      .rangeRound([margin.top, height - margin.bottom])
+    )).selectAll('text')
+      .style('fill', 'black')
+      .style('opacity', function() { return highlighted === this.innerHTML ? 1 : 0.3 ; })
+      .style('font-weight', function() { return highlighted === this.innerHTML ? 800 :  400; });
+
+    
+
+
+  const yAxisRight = svg.append('g')
+    .attr('class', 'y axis yright')
+    .attr('transform', 'translate(' + [width - margin.left , 0]+ ')')
+    .call(d3.axisRight()
+      .scale(d3.scalePoint()
+       .domain(orderMaxYear)
+       .rangeRound([margin.top, height - margin.bottom])
+     )).selectAll('text')
+      .style('fill', 'black')
+      .style('opacity', function() { return highlighted === this.innerHTML ? 1 : 0.3 ; })
+      .style('font-weight', function() { return highlighted === this.innerHTML ? 800 :  400; });
+
+
+
+  const group_tag = svg.selectAll('.tagline')
+    .data(teams)
+    .enter()
+    .append('g')
+    .attr('class', d => `tagline g_${d}`);
+    const line = d3.line()
+    .x(d => xscale(d[0]))
+    .y(d => yscale(d[1]))
+    .curve(d3.curveCatmullRom.alpha(0.66));
+     group_tag.append('path')
+    .datum(d => d)
+    .attr('fill', 'none')
+    .attr('stroke', (d) => ranked["2005"][d].color)
+    .attr('stroke-linejoin', 'round')
+    .attr('stroke-linecap', 'round')
+    .attr('stroke-width', '1.75px')
+  .attr('d', (d) => splitArray(years.map(y => ranked[y][d].bothSum > -1 ? [y, ranked[y][d].rank] : null), null)
+          .filter(d => d.length > 1)
+          .map(d => line(d)));
+     const g_circle = group_tag.append('g')
+    .selectAll('circle')
+    .data(years)
+    .enter();
+    g_circle.append('circle')
+    .attr('r', function(d){return highlighted === this.parentElement.__data__ ? 9 : 5 ; })
+     .attr('cx', (d) => xscale(d))
+    .attr('cy', function(d) { return yscale(ranked[d][this.parentElement.__data__].rank); })
+    .attr('fill', function(d) { return ranked["2005"][this.parentElement.__data__].color; });
+
+     g_circle.append('circle')
+    .attr('r', 25)
+    .attr('fill', 'transparent')
+    .attr('cx', d => xscale(d))
+    .attr('cy', function (d) {
+      var tag = this.parentElement.__data__;
+      var v = ranked[d][tag];
+      return yscale(v.rank);
+    });
+    g_circle.append('text')
+    .attr('x', d => xscale(d))
+    .attr('y', function (d) { return yscale(ranked[d][this.parentElement.__data__].rank)})
+    .attr("dy", ".35em")
+     .attr('fill', function (d) { return ranked["2005"][this.parentElement.__data__].tt;})
+     .attr('font-size', 11)
+     .attr('text-anchor', 'middle')
+     .style("font-weight", "bold")
+     .text(function (d) { if(highlighted == this.parentElement.__data__){
+     	return ranked[d][this.parentElement.__data__].bothSum;}}) ;
+
+    svg.selectAll(`.tagline:not(.g_${highlighted})`).style('opacity', 0.2);
 
   }
-
-  return JSON.stringify(result); //JSON
-}
-var test = csvJSON(Get("./allPlayers.csv"));
-alert(test.length);
-var teamTotals = [{"team":"76ers","Round1":24,"Round2":38,"Total":62},{"team":"Blazers","Round1":24,"Round2":25,"Total":49},{"team":"Bucks","Round1":17,"Round2":23,"Total":40},{"team":"Bulls","Round1":22,"Round2":12,"Total":34},{"team":"Cavaliers","Round1":18,"Round2":15,"Total":33},{"team":"Celtics","Round1":25,"Round2":24,"Total":49},{"team":"Clippers","Round1":12,"Round2":16,"Total":28},{"team":"Grizzlies","Round1":21,"Round2":14,"Total":35},{"team":"Hawks","Round1":23,"Round2":22,"Total":45},{"team":"Heat","Round1":12,"Round2":14,"Total":26},{"team":"Hornets","Round1":26,"Round2":21,"Total":47},{"team":"Jazz","Round1":25,"Round2":23,"Total":48},{"team":"Kings","Round1":21,"Round2":22,"Total":43},{"team":"Knicks","Round1":20,"Round2":14,"Total":34},{"team":"Lakers","Round1":16,"Round2":22,"Total":38},{"team":"Magic","Round1":21,"Round2":21,"Total":42},{"team":"Mavericks","Round1":11,"Round2":17,"Total":28},{"team":"Nets","Round1":21,"Round2":17,"Total":38},{"team":"Nuggets","Round1":16,"Round2":16,"Total":32},{"team":"Pacers","Round1":18,"Round2":24,"Total":42},{"team":"Pelicans","Round1":17,"Round2":21,"Total":38},{"team":"Pistons","Round1":18,"Round2":26,"Total":44},{"team":"Raptors","Round1":17,"Round2":14,"Total":31},{"team":"Rockets","Round1":20,"Round2":13,"Total":33},{"team":"Spurs","Round1":21,"Round2":25,"Total":46},{"team":"Suns","Round1":25,"Round2":18,"Total":43},{"team":"Thunder","Round1":28,"Round2":22,"Total":50},{"team":"Timberwolves","Round1":25,"Round2":27,"Total":52},{"team":"Warriors","Round1":18,"Round2":16,"Total":34},{"team":"Wizards","Round1":18,"Round2":18,"Total":36}];
-</script>
+ 
+    trustTheProcess("#bumpSvg","76ers", ranked);
+    $("#highlighter").on("change", function(){
+    	trustTheProcess("#bumpSvg", this.value, ranked);
+    });
+    $("input[name='round']").on("click", function () {
+  lollipopLollipop("#teamSvg", this.value, teamTotals);
+  ranked = aggBy(this.value);
+  var teamH = document.getElementById("highlighter");
+  trustTheProcess("#bumpSvg", teamH.value, ranked);
+});
+    </script>
