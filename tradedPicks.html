@@ -164,34 +164,23 @@ background-color: #5C5451 !important;
     How should future NBA draft picks be valued?
   </nav>
 </header>
+
 <div class="container-fluid">
+
   <div class="card mt-3">
-    <div class="card-header">
-      <ul class="nav nav-tabs" role="tablist" id="myTab">
-        <li class="nav-item " role="presentation">
-          <a class="nav-link active" id="journey-tab" data-bs-toggle="tab" data-bs-target="#journey" type="button" role="tab" aria-controls="journey" aria-selected="true">
-            Part 1: The Journey of the Picks</a>
-        </li>
-        <li class="nav-item " role="presentation">
-          <a class="nav-link" id="conditions-tab" data-bs-toggle="tab" data-bs-target="#conditions" type="button" role="tab" aria-controls="conditionsTab" aria-selected="false">
-            Part 2: Swaps, conditions and protections</a>
-        </li>
-        <li class="nav-item " role="presentation">
-          <a class="nav-link" id="value-tab" data-bs-toggle="tab" data-bs-target="#value" type="button" role="tab" aria-controls="valueView" aria-selected="false">
-            Part 3: What is value, anyway?</a>
-        </li>
-      </ul>
-    </div>
+
+      
     <!--- end card-header !--->
     <div class="tab-content">
       <div class="tab-pane active" id="journey" role="tabpanel" aria-labelledby="journey-tab">
+          <div class="card-header header">Part 1: The Journey of the Picks</div>
         <div class="card-body">
         <p class="card-text">
-        A while back, I made an impulsive decision to quit a well-paying job without a plan because I was miserable. I had lost my curiosity, motivation and direction. Interviewing for new jobs, I recalled the story that triggered my need to understand statistics - how it works, when it works and the rules implied (it was a debate on the merits of Tony Parker vs Rajon Rondo - this was 2013 y'all). I missed sports, so I asked a friend still working in the field, "what's an important, but unanswered question in the league?"
+        A while back, I made an impulsive decision to quit a well-paying job without a plan because I was miserable. I had lost my curiosity, motivation and direction. Interviewing for new jobs, I recalled the story that triggered my need to understand statistics - how it works, when it works and the rules implied - it was a debate on the merits of Tony Parker vs Rajon Rondo (this was 2012 y'all). I missed sports, so I asked a friend still working in the field, "what's an important, but unanswered question in the league?"
             <br>
             <p class="secondary text-center"> "How do you value a future draft pick?"</p>
-           No matter how you approach the question, the only certain part of the answer is the beginning: <b>it depends</b>...<br><br>
-           So let's start with context and some data - looking at drafts from 2005-2024 there were a total of 1,200 draft picks made* (only 1,194 in actuality - 6 were rescinded for various reasons). Each team was alotted 40 total picks in this timeframe, 20 first rounders, 20 seconds - at minimum, each team had to make 10 first round picks (a la the Stepien Rule), but beyond that, the decision of whether or not to keep or trade their picks rested on the decision-makers. <br>  <br>This begs the question - how much do teams really differ in terms of accumulated draft picks?<br><br>
+          Huh! I thought, really? Then I started to consider all the wrinkles that make the question less straightfoward than it sounds...what are you giving up? How long do you have to wait to cash in? What's the projected depth of talent in that year's draft? How is the team that owns the pick performing (extra icks if we're talking years away)? Are there conditions, protections, alternatives and all that lovely fine print? <br><br><p class="secondary text-center">Challenge accepted</p>
+           So let's start with context and some data - looking at drafts from 2005-2024 there were a total of 1,200 draft picks made* (only 1,194 in actuality - 6 were rescinded for various reasons). Each team was alotted 40 total picks in this timeframe, 20 first rounders, 20 seconds - at minimum, each team had to make 10 first round picks (a la the Stepien Rule), but beyond that, the decision of whether or not to keep or trade their picks rested on the decision-makers. Decisions are made under different situational constraints - cap space available to attract talent through free agency (and ownership willingness to spend), team attractiveness to free agents (success? city? likable teammates? personal fit with organizational strategy?), ability/willingness to identify and develop draftable talent... and who knows what else. Whatever the rationale, value is less a *truth* than a perception - about which teams may or may not agree. <br>  <br>This begs the question - how much do teams really differ in terms of accumulated draft picks?<br><br>
            <p class="secondary text-center">*Cue Sam Hinkie, stage right*</p>
             </p>
     
@@ -217,11 +206,7 @@ background-color: #5C5451 !important;
           </div>
         </div> <!--- end card-group !--->
         <p class="card-text">
-        The 76ers lead teams in total draft picks and it's not close. They nearly doubled their alotted second round picks, having made 38 since 2005. OKC, meanwhile, holds the lead for first round picks having made 8 more than their alotted 20. <br><br>
-        
-But none of this is news. The question remains: does "the process" work? And whose process? Sam Hinkie's? Sam Presti's? Or is it the Heat, Mavericks, Clippers, Nuggets... who traded most of their future "assets" in order to change their present? <br><br>
-
-First things first - in order to assign "value" to a pick, we have to read the fine print and consider the ways traded picks differ beyond the round.... COMING SOON       </p>
+        The 76ers lead teams in total draft picks and it's not close. They nearly doubled their alotted second round picks, having made 38 since 2005, but they are really the only outlier amongst what is otherwise a fairly normal looking distribution. The rank order of teams shuffles quite a bit between first and second rounders, which is intriguing, but not quite the point yet. First - we have to account for the ways traded picks differ.</p>
 
 <!--- differences: round, years to draft, protections !--->
       </div>
@@ -229,19 +214,42 @@ First things first - in order to assign "value" to a pick, we have to read the f
       <!--- end card-body !--->
       </div> <!--- end journey-pane !--->
       <div class="tab-pane " id="conditions" role="tabpanel" aria-labelledby="conditions-tab">
+        <div class="card-header header">Part 2: Swaps, conditions and protections</div>
+
         <div class="card-body">
         
         </div>    <!--- end card-body (conditions) !--->
      
       </div> <!--- end condition tab-pane !--->
       <div class="tab-pane " id="value" role="tabpanel" aria-labelledby="value-tab">
+        <div class="card-header header">Part 3: What is value, anyway?</div>
+
         <div class="card-body">
         </div> <!--- end card-body (value) !--->
       </div> <!--- end value tab-pane !--->
     </div> <!--- end tab-content !--->
     
   </div>  <!--- end card !--->
- 
+ <nav class="navbar bd-navbar position-relative">
+<div class=" container-fluid flex-row flex-wrap sticky-bottom justify-content-center">
+<ul class="nav nav-tabs pagination justify-content-center " role="tablist" id="myTab">
+        <li class="nav-item " role="presentation">
+          <a class="nav-link active" id="journey-tab" data-bs-toggle="tab" data-bs-target="#journey" type="button" role="tab" aria-controls="journey" aria-selected="true"> 1
+            </a>
+        </li>
+        <li class="nav-item " role="presentation">
+          <a class="nav-link" id="conditions-tab" data-bs-toggle="tab" data-bs-target="#conditions" type="button" role="tab" aria-controls="conditionsTab" aria-selected="false">
+            2</a>
+        </li>
+        <li class="nav-item " role="presentation">
+          <a class="nav-link" id="value-tab" data-bs-toggle="tab" data-bs-target="#value" type="button" role="tab" aria-controls="valueView" aria-selected="false">
+            3</a>
+        </li>
+      </ul>
+      
+   </div>
+      </nav>
+
 </div>
 <!--- end container !--->
 </body>
